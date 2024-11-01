@@ -24,8 +24,8 @@ class Enemy {
     this.position = '?';
     console.log('Enemy is dead!');
     this.generateSkin();
-    this.position = 100;
-
+    this.positionX = 30;
+    this.positionY = Math.floor(1 + Math.random() * (4 + 1 - 1));
   }
 }
 

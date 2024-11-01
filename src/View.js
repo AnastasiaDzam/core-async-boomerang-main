@@ -1,16 +1,10 @@
 // Сделаем отдельный класс для отображения игры в консоли.
-
 class View {
-
-
-  render(datatrack) {
-    const yourTeamName = 'Elbrus';
-
-    
-
+  render(track) {
+    const yourTeamName = 'Каламбурщики';
     // Тут всё рисуем.
     console.clear();
-    console.log(datatrack.join(''));
+    console.log(track.join(''));
     console.log('\n\n');
     console.log(`Created by "${yourTeamName}" with love`);
   }

@@ -15,10 +15,11 @@ class Game {
     this.trackLength = trackLength;
     this.boomerang = new Boomerang()
     this.hero = new Hero(this.boomerang); // Герою можно аргументом передать бумеранг.
-    this.enemy = new Enemy();
+    this.enemy = new Enemy(trackLength);
     this.view = new View();
     this.track = [];
     this.regenerateTrack();
+    this.enemyKilled = 0;
   }
 
   regenerateTrack() {
@@ -28,6 +29,7 @@ class Game {
     this.track[this.hero.position] = this.hero.skin;
     this.track[this.enemy.position] = this.enemy.skin
     this.track[this.boomerang.position] = this.boomerang.skin
+    this.boomerang.fly();
   }
 
   check() {
@@ -50,9 +52,8 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track,this.hero);
-      this.enemy.moveLeft();
-    },1000);
+      this.view.render(this.track, this.enemyKilled);
+    }, 100);
   }
 }
 
