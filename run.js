@@ -1,5 +1,6 @@
 // Основной файл.
 // Запускает игру.
+const runInteractiveConsole = require('./src/runInteractiveConsole');
 const Game = require('./src/Game');
 
 // Инициализация игры с настройками.
@@ -9,4 +10,5 @@ const game = new Game({
 //комментарий 
 
 // Запуск игры.
+runInteractiveConsole(game);
 game.play();
