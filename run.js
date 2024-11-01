@@ -6,7 +6,7 @@ const Game = require('./src/Game');
 const game = new Game({
   trackLength: 30,
 });
-
+//комментарий 
 
 // Запуск игры.
 game.play();
