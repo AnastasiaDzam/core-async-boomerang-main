@@ -7,12 +7,20 @@ const keypress = require('keypress');
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
+// const keyboard = {
+//   w: (hero) => hero.moveUp() , // вверх
+//   s: (hero) => hero.moveDown(), // вниз
+//   a: (hero) => hero.moveLeft(),  // влево
+//   d: (hero) => hero.moveRight(),  // вправо
+//   space: (hero) => hero.attack(), // атака
+// };
+
 const keyboard = {
-  w: (hero) => hero.moveUp() , // вверх
-  s: (hero) => hero.moveDown(), // вниз
-  a: (hero) => hero.moveLeft(),  // влево
-  d: (hero) => hero.moveRight(),  // вправо
-  space: (hero) => hero.attack(), // атака
+  w: (game) => game.hero.moveUp() , // вверх
+  s: (game) => game.hero.moveDown(), // вниз
+  a: (game) => game.hero.moveLeft(),  // влево
+  d: (game) => game.hero.moveRight(),  // вправо
+  space: (game) => game.hero.attack(), // атака
 };
 
 // Какая-то функция.
