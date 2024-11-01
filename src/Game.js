@@ -14,7 +14,7 @@ class Game {
   constructor({ trackLength }) {
     this.trackLength = trackLength;
     this.boomerang = new Boomerang()
-    this.hero = new Hero(this.boomerang.position = this.boomerang.skin); // Герою можно аргументом передать бумеранг.
+    this.hero = new Hero(this.boomerang); // Герою можно аргументом передать бумеранг.
     this.enemy = new Enemy();
     this.view = new View();
     this.track = [];
@@ -27,13 +27,22 @@ class Game {
     this.track = (new Array(this.trackLength)).fill(' ');
     this.track[this.hero.position] = this.hero.skin;
     this.track[this.enemy.position] = this.enemy.skin
-  //  this.track[this.boomerang.position] = this.boomerang.skin
+    this.track[this.boomerang.position] = this.boomerang.skin
   }
 
   check() {
-    if (this.hero.position === this.enemy.position) {
-      this.hero.die();
+    
+       if (this.boomerang.position === this.enemy.position){
+        this.enemy.die();
+      
     }
+    
+      if (this.hero.position === this.enemy.position) {
+        this.hero.die();
+      }
+    
+
+ 
   }
 
   play() {
@@ -41,7 +50,8 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track);
+      this.view.render(this.track,this.hero);
+      this.enemy.moveLeft();
     },1000);
   }
 }
